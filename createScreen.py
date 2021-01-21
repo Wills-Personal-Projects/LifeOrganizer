@@ -14,4 +14,4 @@ def createScreen(screen, sW, sH):
             k = k + 1
         screen.append(temp)    
         v = v + 1
-    modifyScreen(screen, [0, 0, sW-1, sH-1])
+    return

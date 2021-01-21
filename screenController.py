@@ -2,6 +2,8 @@
 from modifyScreen import modifyScreen
 from createScreen import createScreen
 from printScreen import printScreen
+from undoAddBox import undoAddBox
+from updateState import updateState
 
 screenW = 0
 screenH = 0
@@ -13,7 +15,7 @@ def menu():
     print("\n")
     print("a. define window size")
     print("b. add a box")
-    print("c. remove a box")
+    print("c. undo add box")
     print("d. print the window")
     print("e. close program")
     print("\n")
@@ -29,6 +31,8 @@ while(c != "e"):
         screenH = int(input("how tall?"))
         screen = []
         createScreen(screen, screenW, screenH)
+        modifyScreen(screen, [0, 0, screenW-1, screenH-1])
+        updateState(screen)
     elif(c == "b"):
         print("\n")
         l0 = int(input("how far from the left?"))
@@ -39,10 +43,9 @@ while(c != "e"):
         print("\n")
         t1 = screenH - 1 - int(input("how far up from the bottom?"))
         modifyScreen(screen, [l0, t0, l1, t1])
+        updateState(screen)
+    elif(c == "c"):
+        undoAddBox(screen)
     elif(c == "d"):
         printScreen(screen)
     c = menu()
-
-
-
-

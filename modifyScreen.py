@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-from updateState import updateState
 
 def modifyScreen( screen , newBox):
     i = 0
@@ -17,5 +16,3 @@ def modifyScreen( screen , newBox):
                 screen[i][j] = '||'
             j = j + 1
         i = i + 1
-        updateState(screen)
-    return screen
