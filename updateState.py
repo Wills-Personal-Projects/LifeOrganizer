@@ -5,9 +5,9 @@ import os
 
 def updateState(screen):
     
-    if(os.stat("LifeOrganizer_pkg/currentWindowState.txt").st_size > 0):
+    if(os.stat("editStates/currentWindowState.txt").st_size > 0):
         savePreviousState(screen)
-    wState = open("LifeOrganizer_pkg/currentWindowState.txt","w")
+    wState = open("editStates/currentWindowState.txt","w")
     v = 0
     k = 0
     while( v < len(screen)):

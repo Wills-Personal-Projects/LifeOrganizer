@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-
+from printScreen import printScreen
 def modifyScreen( screen , newBox):
     i = 0
     j = 0
