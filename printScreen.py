@@ -1,7 +1,8 @@
 #!/usr/bin/python3
+from filePaths import getPath
 
 def printScreen(screen):
-    wState = open("editStates/currentWindowState.txt","r")
+    wState = open(getPath(0),"r")
     v = 0
     while( v < len(screen)):
         print(wState.readline().rstrip())

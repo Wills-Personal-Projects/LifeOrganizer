@@ -4,6 +4,7 @@ from createScreen import createScreen
 from printScreen import printScreen
 from undoAddBox import undoAddBox
 from updateState import updateState
+from addToDoList import addToDoList
     
 def editController(screen, screenW, screenH):
     c = ""
@@ -37,7 +38,7 @@ def editController(screen, screenW, screenH):
             print("\n")
             t1 = (screenH - 1) - int(input("how far up from the bottom is the to-do list?"))
             print(l0)
-            modifyScreen(screen, [l0, t0, l1, t1])
+            addToDoList(screen, [l0, t0, l1, t1])
             updateState(screen)
         elif(c == "b"):
              print("edit to-do list")

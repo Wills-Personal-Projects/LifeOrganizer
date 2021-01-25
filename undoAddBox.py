@@ -1,11 +1,12 @@
 #!/usr/bin/python3
+from filePaths import getPath
 
 def undoAddBox(screen):
-    wState = open("editStates/currentWindowState.txt","r+")
+    wState = open(getPath(0),"r+")
     wState.truncate(0)
     wState.close()
-    wPreState = open("editStates/previousWindowState.txt","r")
-    wState = open("editStates/currentWindowState.txt","w")
+    wPreState = open(getPath(1),"r")
+    wState = open(getPath(0),"w")
     v = 0
     while (v < len(screen)):
         p = wPreState.readline().rstrip()

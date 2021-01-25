@@ -1,8 +1,9 @@
 #!/usr/bin/python3
+from filePaths import getPath
 
 def savePreviousState(screen):
-    wPreState = open("editStates/previousWindowState.txt","w")
-    wState = open("editStates/currentWindowState.txt","r")
+    wPreState = open(getPath(1),"w")
+    wState = open(getPath(0),"r")
     v = 0
     while (v < len(screen)):
         p = wState.readline().rstrip()
