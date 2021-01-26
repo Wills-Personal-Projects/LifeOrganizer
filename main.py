@@ -1,8 +1,7 @@
-#!/usr/bin/python3
-from editController import editController
-from viewController import viewController
+from App.Controllers.editController import editController
+from App.Controllers.viewController import viewController
 
-def init():
+def main():
     screen = []
     screenW = 0
     screenH = 0
@@ -19,4 +18,5 @@ def init():
         print("b. view")
         print("c. quit")
         choice = input("type a, b, or c: ")
-init()
+    return
+main()

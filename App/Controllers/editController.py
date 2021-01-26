@@ -1,10 +1,11 @@
 #!/usr/bin/python3
-from modifyScreen import modifyScreen
-from createScreen import createScreen
-from printScreen import printScreen
-from undoAddBox import undoAddBox
-from updateState import updateState
-from addToDoList import addToDoList
+from ..Screen.modifyScreen import modifyScreen
+from ..Screen.createScreen import createScreen
+from ..Screen.printScreen import printScreen
+from ..Screen.undoAddBox import undoAddBox
+from ..Screen.updateState import updateState
+from ..ToDoList.addToDoList import addToDoList
+from ..ToDoList.editToDoList import editToDoList
     
 def editController(screen, screenW, screenH):
     c = ""
@@ -20,7 +21,7 @@ def editController(screen, screenW, screenH):
             print("e. window preview")
             print("f. close program")
             print("\n")
-            c  = input("type a, b, c, d, or e: ")
+            c  = input("type a, b, c, d, e, or f: ")
         else:
             print("\n")
             screenW = int(input("how wide is this window?"))
@@ -41,7 +42,7 @@ def editController(screen, screenW, screenH):
             addToDoList(screen, [l0, t0, l1, t1])
             updateState(screen)
         elif(c == "b"):
-             print("edit to-do list")
+             editToDoList()
         elif(c == "c"):
             l0 = int(input("how far from the left is the calendar?"))
             print("\n")

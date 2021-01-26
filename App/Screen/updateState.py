@@ -1,7 +1,7 @@
 #!/usr/bin/python3
-from deleteScreen import deleteScreen
-from savePreviousState import savePreviousState
-from filePaths import getPath
+from ..Screen.deleteScreen import deleteScreen
+from ..Screen.savePreviousState import savePreviousState
+from ..Path.filePaths import getPath
 import os
 
 def updateState(screen):

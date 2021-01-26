@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-from filePaths import getPath
+from ..Path.filePaths import getPath
 
 def printScreen(screen):
     wState = open(getPath(0),"r")

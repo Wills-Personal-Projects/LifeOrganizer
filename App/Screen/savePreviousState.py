@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-from filePaths import getPath
+from ..Path.filePaths import getPath
 
 def savePreviousState(screen):
     wPreState = open(getPath(1),"w")

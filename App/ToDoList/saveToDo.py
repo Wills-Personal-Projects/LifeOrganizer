@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-from filePaths import getPath
+from ..Path.filePaths import getPath
 
 def saveToDo(dim, tasks):
     toDoFile = open(getPath(2), "w")

@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-from modifyScreen import modifyScreen
-from saveToDo import saveToDo
+from ..Screen.modifyScreen import modifyScreen
+from ..ToDoList.saveToDo import saveToDo
 
 def addToDoList(screen, p):
     modifyScreen(screen, p)#draw outer box on screen
@@ -25,6 +25,5 @@ def addToDoList(screen, p):
                 screen[i][j] = "--"
             j = j + 1
         i = i + 1
-        tasks = [[" t"," a"," s"," k","  "," h"," e"," r"," e"]]
         saveToDo(p, tasks)
     return

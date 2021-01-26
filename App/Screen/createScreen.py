@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-from modifyScreen import modifyScreen
-from deleteScreen import deleteScreen
+from ..Screen.modifyScreen import modifyScreen
+from ..Screen.deleteScreen import deleteScreen
 
 def createScreen(screen, sW, sH):
     deleteScreen()
