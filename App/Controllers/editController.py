@@ -42,7 +42,8 @@ def editController(screen, screenW, screenH):
             addToDoList(screen, [l0, t0, l1, t1])
             updateState(screen)
         elif(c == "b"):
-             editToDoList()
+             editToDoList(screen)
+             updateState(screen)
         elif(c == "c"):
             l0 = int(input("how far from the left is the calendar?"))
             print("\n")

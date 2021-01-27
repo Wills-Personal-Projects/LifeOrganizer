@@ -1,24 +1,11 @@
-#!/usr/bin/python3
-from ..Path.filePaths import getPath
+from ..ToDoList.addToDo import addToDo
 
-def addToDo( tD ):
-    toDo = list(tD)
-    print(toDo)
-    toDoFile = open(getPath(2), "a")
-    i = 0
-    while (i < len(toDo)):
-        toDoFile.write(toDo[i]+" ")
-        i = i + 1
-    toDoFile.write("\n")
-    toDoFile.close()
-    return
-
-def editToDoList():
+def editToDoList(screen):
     c = ''
     while (c != 'b'):
         print("a. add to-do")
         print("b. exit")
         c = input("enter a or b")
         if(c == 'a'):
-            addToDo(input("what is the to-do?"))
+            addToDo(screen, list(input("what is the todo?")))
     return

@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 from App.Controllers.editController import editController
 from App.Controllers.viewController import viewController
 
