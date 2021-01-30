@@ -1,6 +1,8 @@
 from ..ToDoList.addToDo import addToDo
+from ..Screen.screenSource import getScreen
 
-def editToDoList(screen):
+def editToDoList():
+    screen = getScreen()
     c = ''
     while (c != 'b'):
         print("a. add to-do")

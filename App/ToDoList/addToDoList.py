@@ -1,9 +1,11 @@
 #!/usr/bin/python3
 from ..Screen.modifyScreen import modifyScreen
 from ..ToDoList.saveToDoList import saveToDoList
+from ..Screen.screenSource import getScreen
 
-def addToDoList(screen, p):
-    modifyScreen(screen, p)#draw outer box on screen
+def addToDoList(p):
+    screen = getScreen()
+    modifyScreen(p)#draw outer box on screen
     title = [" T"," O"," D"," O","  "," L"," I"," S"," T"]
     i = p[1]
     j = p[0]+1

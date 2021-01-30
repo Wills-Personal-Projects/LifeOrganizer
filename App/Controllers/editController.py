@@ -6,11 +6,16 @@ from ..Screen.undoAddBox import undoAddBox
 from ..Screen.updateState import updateState
 from ..ToDoList.addToDoList import addToDoList
 from ..ToDoList.editToDoList import editToDoList
+from ..Screen.screenSource import getScreenDim
+from ..Screen.screenSource import setScreenDim
     
-def editController(screen, screenW, screenH):
+def editController():
     c = ""
     while(c != "f"):
-        if(len(screen) > 0):
+        dims = getScreenDim()
+        sH = int(dims[1])
+        sW = int(dims[0])
+        if(sH > 0):
             print("\n")
             print("Life Organizer Editor")
             print("\n")
@@ -24,38 +29,35 @@ def editController(screen, screenW, screenH):
             c  = input("type a, b, c, d, e, or f: ")
         else:
             print("\n")
-            screenW = int(input("how wide is this window?"))
+            w = int(input("how wide is this window?"))
             print("\n")
-            screenH = int(input("how tall is this window?"))
-            createScreen(screen, screenW, screenH)
-            modifyScreen(screen, [0, 0, screenW-1, screenH-1])
-            updateState(screen)
+            h = int(input("how tall is this window?"))
+            setScreenDim([w,h])
+            createScreen()
+            modifyScreen([0, 0, w-1, h-1])
         if(c == "a"):
             l0 = int(input("how far from the left is the to-do list?"))
             print("\n")
             t0 = int(input("how far down from the top is the to-do list?"))
             print("\n")
-            l1 = (screenW - 1) - int(input("how far from the right is the to-do list?"))
+            l1 = (sW - 1) - int(input("how far from the right is the to-do list?"))
             print("\n")
-            t1 = (screenH - 1) - int(input("how far up from the bottom is the to-do list?"))
+            t1 = (sH - 1) - int(input("how far up from the bottom is the to-do list?"))
             print(l0)
-            addToDoList(screen, [l0, t0, l1, t1])
-            updateState(screen)
+            addToDoList([l0, t0, l1, t1])
         elif(c == "b"):
-             editToDoList(screen)
-             updateState(screen)
+             editToDoList()
         elif(c == "c"):
             l0 = int(input("how far from the left is the calendar?"))
             print("\n")
             t0 = int(input("how far down from the top is the calendar?"))
             print("\n")
-            l1 = screenW - 1 - int(input("how far from the right is the calendar?"))
+            l1 = sW - 1 - int(input("how far from the right is the calendar?"))
             print("\n")
-            t1 = screenH - 1 - int(input("how far up from the bottom is the calendar?"))
-            modifyScreen(screen, [l0, t0, l1, t1])
-            updateState(screen)
+            t1 = sH - 1 - int(input("how far up from the bottom is the calendar?"))
+            modifyScreen([l0, t0, l1, t1])
         elif(c == "d"):
             print("add task to calendar")
         elif(c == "e"):
-            printScreen(screen)
+            printScreen()
     return
