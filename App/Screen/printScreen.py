@@ -1,12 +1,19 @@
 #!/usr/bin/python3
 from ..Path.filePaths import getPath
-from ..Screen.screenSource import getScreenDim
+from ..Screen.screenAPI import getScreenDim
+from ..Screen.screenAPI import getScreen
 
 def printScreen():
-    sH = int(getScreenDim()[1])
-    wState = open(getPath(0),"r")
+    dims = getScreenDim()
+    w = int(dims[0])
+    h = int(dims[1])
+    screen = getScreen()
     v = 0
-    while( v < sH ):
-        print(wState.readline().rstrip())
+    while( v < h ):
+        k = 0
+        row = ""
+        while( k < w ):
+            row = row + screen[v][k]
+            k = k + 1
+        print(row)
         v = v + 1
-    wState.close()

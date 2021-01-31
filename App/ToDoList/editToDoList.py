@@ -1,5 +1,5 @@
 from ..ToDoList.addToDo import addToDo
-from ..Screen.screenSource import getScreen
+from ..Screen.screenAPI import getScreen
 
 def editToDoList():
     screen = getScreen()
