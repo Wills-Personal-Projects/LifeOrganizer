@@ -1,4 +1,4 @@
-from ..ToDoList.toDoChange import addToDo, removeToDo, addToDoList
+from ..ToDoList.toDoChange import addToDo, removeToDo, addToDoList, removeToDoList
 from ..Screen.screenAccess import getScreenDim
 
 def toDoController():
@@ -6,12 +6,13 @@ def toDoController():
     w = int(dims[0])
     h = int(dims[1])
     c = ''
-    while (c != 'd'):
+    while (c != 'e'):
         print("a. create a to-do list")
         print("b. add to-do")
         print("c. remove to-do")
-        print("d. exit")
-        c = input("enter a, b, c, or d: ")
+        print("d. remove to-do list")
+        print("e. exit")
+        c = input("enter a, b, c, d or e: ")
         if(c == 'a'):
             x0 = int(input("how far from the left is the to-do list?: "))
             y0 = int(input("how far from the top is the to-do list?: "))
@@ -27,4 +28,7 @@ def toDoController():
             print("which todo?")
             sc = input("enter integer 1 or 2 or 3 or ... or n where n > 0: ")
             removeToDo(n, int(sc))
+        if(c == 'd'):
+            n = input("enter the name of the to-do list: ")
+            removeToDoList(n)
     return

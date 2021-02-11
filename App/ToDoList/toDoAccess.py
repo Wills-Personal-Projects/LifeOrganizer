@@ -56,3 +56,14 @@ def saveToDoList(dim, name):
     toDoFile.write("0")
     toDoFile.close()
     return
+
+def deleteToDoList( n ):
+    nameList = open(getNamesPath(), "r")
+    names = nameList.readlines()
+    nameList.close()
+    nameList = open(getNamesPath(), "w")
+    for name in names:
+        if(name.rstrip() != n):
+            nameList.write(name)
+    nameList.close()
+    return

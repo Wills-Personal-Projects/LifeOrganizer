@@ -1,12 +1,11 @@
 #!/usr/bin/python3
-from ..ToDoList.toDoAccess import getToDoList, setToDoList, saveToDoList, getToDoListDim
+from ..ToDoList.toDoAccess import getToDoList, setToDoList, saveToDoList, getToDoListDim, deleteToDoList, getBaseToDoPath
 from ..Screen.screenAccess import getScreen, setScreen
 from ..Screen.screenChange import modifyScreen
-
+import os
 
 def addToDo(n, tD ):
     tDList = getToDoList(n)
-    #add todo to todo list n
     tDList.append(tD)
     setToDoList(n, tDList, True)
     addToScreen(n, tDList)
@@ -18,6 +17,25 @@ def removeToDo( n, i ):
     tDList.pop(i-1)
     setToDoList(n, tDList, False)
     addToScreen(n, tDList)
+    return
+
+def removeToDoList( n ):
+    dim = getToDoListDim(n)
+    x0 = int(dim[0])
+    y0 = int(dim[1])
+    x1 = int(dim[2])
+    y1 = int(dim[3])
+    screen = getScreen()
+    i = y0
+    while(i < y1):
+        j = x0
+        while(j < x1):
+            screen[i][j] = ".."
+            j = j + 1
+        i = i + 1
+    setScreen(screen)
+    deleteToDoList(n)
+    os.remove(getBaseToDoPath()+n+".txt") 
     return
 
 def addToScreen(n, tDList):
