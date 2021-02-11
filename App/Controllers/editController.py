@@ -1,51 +1,48 @@
 #!/usr/bin/python3
-from ..Screen.modifyScreen import modifyScreen
-from ..Screen.createScreen import createScreen
+from ..Screen.screenChange import modifyScreen, createScreen
 from ..Screen.printScreen import printScreen
-from ..Screen.undoAddBox import undoAddBox
-from ..ToDoList.addToDoList import addToDoList
-from ..ToDoList.editToDoList import editToDoList
-from ..Screen.screenAPI import getScreenDim
-from ..Screen.screenAPI import setScreenDim
+from ..Screen.screenAccess import getScreenDim, setScreenDim
+from ..Controllers.toDoController import toDoController
     
 def editController():
     c = ""
-    #print("\n")
-    #w = int(input("how wide is this window?"))
-    #print("\n")
-    #h = int(input("how tall is this window?"))
-    w = 60
-    h = 20
-    setScreenDim([w,h])
-    dims = getScreenDim()
-    sH = int(dims[1])
-    sW = int(dims[0])
-    createScreen(sW, sH)
-    modifyScreen([0,0,w,h])
+    w = 0
+    h = 0
     while(c != "f"):
         print("\n")
         print("Life Organizer Editor")
         print("\n")
-        print("a. create to-do list")
-        print("b. edit to-do list")
+        print("a. create main window")
+        print("b. add/remove/edit to-do list")
         print("c. create calendar")
         print("d. add task to calendar")
         print("e. window preview")
-        print("f. close program")
+        print("f. exit")
         print("\n")
         c  = input("type a, b, c, d, e, or f: ")
         if(c == "a"):
-            l0 = int(input("how far from the left is the to-do list?"))
-            print("\n")
-            t0 = int(input("how far down from the top is the to-do list?"))
-            print("\n")
-            l1 = sW - int(input("how far from the right is the to-do list?"))
-            print("\n")
-            t1 = sH - int(input("how far up from the bottom is the to-do list?"))
-            modifyScreen([l0, t0, l1, t1])
-            addToDoList([l0, t0, l1, t1])
+            dims = getScreenDim()
+            if(int(dims[0]) == 0 and int(dims[1]) == 0):
+                w = int(input("how wide is the window? "))
+                h = int(input("how tall is the window? "))
+                setScreenDim([w,h])
+                createScreen(w, h)
+                modifyScreen([0,0,w,h])
+            else:
+                print("do you want to replace the previous window?")
+                r = input("type yes or no: ")
+                if(r == "yes"):
+                    w = int(input("how wide is the window? "))
+                    h = int(input("how tall is the window? "))
+                    setScreenDim([w,h])
+                    createScreen(w, h)
+                    modifyScreen([0,0,w,h])
         elif(c == "b"):
-             editToDoList()
+            dims = getScreenDim()
+            if(int(dims[0]) > 0 and int(dims[1]) > 0):
+                toDoController()
+            else:
+                print("create main window first")
         elif(c == "c"):
             print("calendar")
         elif(c == "d"):

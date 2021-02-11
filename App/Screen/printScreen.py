@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-from ..Path.filePaths import getPath
-from ..Screen.screenAPI import getScreenDim
-from ..Screen.screenAPI import getScreen
+from ..Screen.screenAccess import getScreen, getScreenDim
 
 def printScreen():
     dims = getScreenDim()

@@ -1,7 +1,19 @@
 #!/usr/bin/python3
-from ..Screen.printScreen import printScreen
-from ..Screen.screenAPI import getScreen
-from ..Screen.screenAPI import setScreen
+from ..Screen.screenAccess import getScreen, setScreen
+
+def createScreen(w, h):
+    v = 0
+    screen = []
+    while(v < h):
+        k = 0
+        temp = []
+        while(k < w):
+            temp.append("..")
+            k = k + 1
+        screen.append(temp)
+        v = v + 1
+    setScreen(screen)
+    return
 
 def modifyScreen( newBox ):
     screen = getScreen()
@@ -21,3 +33,4 @@ def modifyScreen( newBox ):
         i = i + 1
     setScreen(screen)
     return
+
